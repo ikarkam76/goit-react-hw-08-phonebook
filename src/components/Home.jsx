@@ -6,6 +6,8 @@ export const Home = () => {
       <>
         <div>React homework template</div>
         <p></p>
+        <Link to="/registration">Registration</Link>
+        <p></p>
         <Link to="/contacts">Contacts</Link>
         <p></p>
         <Link to="/login">Login</Link>
