@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { login } from 'Redux/auth/authOperation';
+import { logIn } from 'Redux/auth/authOperation';
 
 export const LoginPage = () => {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ export const LoginPage = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(login({ email, password }));
+    dispatch(logIn({ email, password }));
     setEmail('');
     setPassword('');
   };

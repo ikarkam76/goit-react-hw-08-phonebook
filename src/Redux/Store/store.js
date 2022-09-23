@@ -18,7 +18,7 @@ import { authReducer } from 'Redux/auth/authSlice';
 const persistConfig = {
   key: 'auth',
   storage,
-  
+  whitlist: ['token'],
 };
 
 export const store = configureStore({
