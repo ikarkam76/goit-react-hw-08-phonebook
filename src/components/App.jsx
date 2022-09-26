@@ -1,4 +1,4 @@
-import { useEffect, Suspense, lazy } from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { RegisterPage } from "Pages/Register";
 import { Route, Routes } from "react-router-dom";
