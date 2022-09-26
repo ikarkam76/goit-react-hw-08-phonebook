@@ -16,7 +16,6 @@ export const LoginPage = () => {
       case 'password':
         setPassword(event.target.value);
         break;
-
       default:
         return;
     }

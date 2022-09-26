@@ -59,29 +59,3 @@ export const fetchCurrentUser = createAsyncThunk('auth/fetch', async (_, thunkAp
   }
   })
   
-
-
-
-// import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-
-// export const userApi = createApi({
-//   reducerPath: 'userApi',
-//   baseQuery: fetchBaseQuery({
-//     baseUrl: 'https://connections-api.herokuapp.com',
-//   }),
-//   endpoints: builder => ({
-//     singUpUser: builder.mutation({
-//       query: credentials => ({
-//         url: `/users/signup`,
-//         method: 'POST',
-//         body: {
-//           name: credentials.name,
-//           email: credentials.email,
-//           password: credentials.password,
-//         },
-//       }),
-//     }),
-//   }),
-// }); 
-
-// export const { useSingUpUserMutation } = userApi;

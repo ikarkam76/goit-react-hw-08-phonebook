@@ -4,18 +4,23 @@ export const contactsApi = createApi({
   reducerPath: 'contactsApi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://connections-api.herokuapp.com',
+    prepareHeaders: (headers, { getState }) => {
+      const token = getState().auth.token;
+      if (token) {
+        headers.set('authorization', `Bearer ${token}`);
+      }
+      return headers;
+    },
   }),
   endpoints: builder => ({
     getContactsByLogin: builder.query({
-      query: authToken => ({
+      query: () => ({
         url: `/contacts`,
-        header: authToken,
       }),
     }),
     editContactById: builder.mutation({
-      query: (contactId, editContact, authToken) => ({
+      query: (contactId, editContact) => ({
         url: `/contacts/${contactId}`,
-        header: authToken,
         method: 'PATCH',
         body: {
           name: editContact.name,
@@ -24,16 +29,14 @@ export const contactsApi = createApi({
       }),
     }),
     deleteContactById: builder.mutation({
-      query: (contactId, authToken) => ({
+      query: (contactId) => ({
         url: `/contacts/${contactId}`,
-        header: authToken,
         method: 'DELETE',
       }),
     }),
     createContact: builder.mutation({
-      query: (newContact, authToken) => ({
+      query: (newContact) => ({
         url: `/contacts`,
-        header: authToken,
         method: 'POST',
         body: {
           name: newContact.name,
