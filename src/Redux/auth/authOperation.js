@@ -19,7 +19,6 @@ export const register =
       token.set(data.token);
       return data;
     } catch (error) {
-      alert(error.message);
     }
   }) 
 
@@ -31,7 +30,6 @@ export const register =
         token.set(data.token);
         return data;
       } catch (error) {
-        alert(error.message);
       }
     }
   ); 
@@ -41,7 +39,6 @@ export const register =
       await axios.post(`/users/logout`);
       token.unset();
     } catch (error) {
-      alert(error.message);
     }
   }); 
 
@@ -55,7 +52,6 @@ export const fetchCurrentUser = createAsyncThunk('auth/fetch', async (_, thunkAp
     const { data } = await axios.get('/users/current');
     return data;
   } catch (error) {
-    alert(error.message);
   }
   })
   

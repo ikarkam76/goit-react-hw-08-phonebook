@@ -5,7 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { UserMenu } from './UserMenu';
-import { LoginModal } from './LogInModal';
+import { LoginModal } from './Modals/LogInModal';
 import { useSelector } from 'react-redux';
 import { authSelectors } from 'Redux/auth/authSelectors';
 

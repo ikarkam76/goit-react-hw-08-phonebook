@@ -19,12 +19,12 @@ export const contactsApi = createApi({
       }),
     }),
     editContactById: builder.mutation({
-      query: (contactId, editContact) => ({
+      query: ({name, number, contactId}) => ({
         url: `/contacts/${contactId}`,
         method: 'PATCH',
         body: {
-          name: editContact.name,
-          number: editContact.number,
+          name: name,
+          number: number,
         },
       }),
     }),
@@ -35,12 +35,12 @@ export const contactsApi = createApi({
       }),
     }),
     createContact: builder.mutation({
-      query: (newContact) => ({
+      query: ({name, number}) => ({
         url: `/contacts`,
         method: 'POST',
         body: {
-          name: newContact.name,
-          number: newContact.number,
+          name: name,
+          number: number,
         },
       }),
     }),

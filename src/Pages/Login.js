@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'Redux/auth/authOperation';
-import { RegistrationModal } from 'Pages/Register';
+import { RegistrationModal } from 'components/Modals/RegisterModal';
 
 const style = {
   position: 'absolute',
