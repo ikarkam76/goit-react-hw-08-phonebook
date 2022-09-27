@@ -50,15 +50,14 @@ export const AddContactModal = () => {
             id="outlined-basic"
             label="Contact name"
             variant="outlined"
-            value={name}
             onChange={handleChangeName}
           />
           <p></p>
           <TextField
+            inputProps={{ inputMode: 'tel', pattern: "[0-9]{3}-[0-9]{3}-[0-9]{4}" }}
             id="outlined-basic"
             label="Contact phone"
             variant="outlined"
-            value={number}
             onChange={handleChangeNumber}
           />
           <p></p>

@@ -2,11 +2,10 @@ import { Link } from 'react-router-dom';
 import { useGetContactsByLoginQuery } from 'Redux/Slices/ContactsSlice';
 import Button from '@mui/material/Button';
 import { AddContactModal } from './AddContactModal';
-
+import { ContactCard } from './ContactCard';
 
 export const Contacts = () => {
   const { data, isLoading } = useGetContactsByLoginQuery();
-  console.log(data);
   if (isLoading) {
     return (<p>loading...</p>);
   } else {
@@ -16,17 +15,9 @@ export const Contacts = () => {
           <Link to="/">Go back</Link>
         </Button>
         <AddContactModal />
-        <ul>
           {data.map(contact => (
-            <li key={contact.id}>
-              <p>
-                {contact.name}
-                {contact.number}
-              </p>
-              
-            </li>
+              <ContactCard contact={contact} key={contact.id} />
           ))}
-        </ul>
       </div>
     );
   };
