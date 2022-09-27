@@ -19,12 +19,10 @@ export const ContactsAppBar = () => {
           <Toolbar disableGutters>
             <Typography
               variant="h5"
-              noWrap
               component="a"
               href="/goit-react-hw-08-phonebook/"
               sx={{
-                mr: 2,
-                display: { xs: 'flex', md: 'none' },
+                mr: 5,
                 flexGrow: 1,
                 fontFamily: 'monospace',
                 fontWeight: 700,
