@@ -14,7 +14,7 @@ const style = {
   width: 400,
   bgcolor: 'background.paper',
   border: '2px solid #000',
-  boxShadow: 24,
+  boxShadow: 14,
   p: 4,
 };
 
@@ -31,7 +31,7 @@ export const AddContactModal = () => {
     const handleSubmit = () => {
         const newContact = {name, number}
         addContact(newContact);
-        handleClose();
+      handleClose();
     }
 
   return (

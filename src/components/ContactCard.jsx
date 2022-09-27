@@ -3,9 +3,11 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { Button, CardActions } from '@mui/material';
+import { useDeleteContactByIdMutation } from 'Redux/Slices/ContactsSlice';
 
-export const ContactCard = ({contact}) => {
-  return (
+export const ContactCard = ({ contact }) => {
+    const [deleteContact] = useDeleteContactByIdMutation();
+    return ( 
     <Card>
       <CardContent>
         <Typography gutterBottom variant="h6" component="div">
@@ -19,7 +21,12 @@ export const ContactCard = ({contact}) => {
         <Button variant="outlined" size="small" color="primary">
           Edit
         </Button>
-        <Button variant="outlined" size="small" color="primary">
+        <Button
+          variant="outlined"
+          size="small"
+          color="primary"
+          onClick={() => deleteContact(contact.id)}
+        >
           Delete
         </Button>
       </CardActions>

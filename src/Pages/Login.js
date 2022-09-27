@@ -1,7 +1,23 @@
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { logIn } from 'Redux/auth/authOperation';
+import { RegistrationModal } from 'Pages/Register';
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 14,
+  p: 4,
+};
 
 export const LoginPage = () => {
   const dispatch = useDispatch();
@@ -9,7 +25,7 @@ export const LoginPage = () => {
   const [password, setPassword] = useState('');
 
   const handleChange = event => {
-    switch (event.target.name) {
+    switch (event.target.type) {
       case 'email':
         setEmail(event.target.value);
         break;
@@ -30,36 +46,28 @@ export const LoginPage = () => {
 
   return (
     <div>
-      <button>
-        <Link to="/">Go back</Link>
-      </button>
-      <p></p>
-      <form onSubmit={handleSubmit} autoComplete="off">
+      <Box sx={style}>
+        <TextField
+          id="outlined-basic"
+          label="Email"
+          type="email"
+          variant="outlined"
+          onChange={handleChange}
+        />
         <p></p>
-        <label>
-          Email
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleChange}
-            placeholder="your email"
-          />
-        </label>
+        <TextField
+          id="outlined-password-input"
+          label="Password"
+          type="password"
+          variant="outlined"
+          onChange={handleChange}
+        />
         <p></p>
-        <label>
-          Password
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-            placeholder="min 7 symbols"
-          />
-        </label>
-        <p></p>
-        <button type="submit">Login</button>
-      </form>
+        <Button variant="outlined" onClick={handleSubmit}>
+          Log In
+        </Button>
+        <RegistrationModal />
+      </Box>
     </div>
   );
 };

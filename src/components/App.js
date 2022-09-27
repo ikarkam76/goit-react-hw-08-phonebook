@@ -3,10 +3,12 @@ import { useDispatch } from "react-redux";
 import { Route, Routes } from 'react-router-dom';
 import { fetchCurrentUser } from "Redux/auth/authOperation";
 import { PrivateRoute } from "components/PrivateRoute";
+import { PublicRoute } from "./PublicRoute";
 import { Home } from "./Home";
-import { RegisterPage } from "Pages/Register";
-import { LoginPage } from "Pages/Login";
+import { LoginModal } from "./LogInModal";
+import { RegistrationModal } from 'Pages/Register';
 import { Contacts } from './Contacts';
+import { ContactsAppBar } from "./AppBar";
 
 
 // const Contacts = lazy(() => import('components/Contacts'));
@@ -19,10 +21,31 @@ export const App = () => {
   useEffect(() => {dispatch(fetchCurrentUser())}, [dispatch]);
   return (
     <Routes>
-      <Route exact path="/" element={<Home />}>
-        <Route path="registration" element={<RegisterPage />} />
-        <Route path="login" element={<LoginPage />} />
-        <Route path="contacts" element={<PrivateRoute><Contacts/></PrivateRoute>} />
+      <Route exact path="/" element={<ContactsAppBar />}>
+        <Route
+          path="registration"
+          element={
+            <PublicRoute>
+              <RegistrationModal />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="login"
+          element={
+            <PublicRoute>
+              <LoginModal />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="contacts"
+          element={
+            <PrivateRoute>
+              <Contacts />
+            </PrivateRoute>
+          }
+        />
         <Route path="*" element={<Home />} />
       </Route>
     </Routes>

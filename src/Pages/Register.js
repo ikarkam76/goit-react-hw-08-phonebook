@@ -1,80 +1,145 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { register } from "Redux/auth/authOperation";
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { register } from 'Redux/auth/authOperation';
 
-export const RegisterPage = () => {
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  pt: 2,
+  px: 4,
+  pb: 3,
+};
+
+export const RegistrationModal = () => {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  }
+
   const dispatch = useDispatch();
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-    const handleChange = (event) => {
-     switch (event.target.name) {
-         case"name":
-             setName(event.target.value);
-             break;
-         case "email":
-             setEmail(event.target.value);
-             break;
-         case "password":
-             setPassword(event.target.value);
-             break;
-         default:
-             return;
-        }
+  const handleChange = event => {
+    switch (event.target.type) {
+      case 'text':
+        setName(event.target.value);
+        break;
+      case 'email':
+        setEmail(event.target.value);
+        break;
+      case 'password':
+        setPassword(event.target.value);
+        break;
+      default:
+        return;
     }
+  };
 
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      dispatch(register({ name, email, password }));
-      setName('');
-      setEmail('');
-      setPassword('')
-    }
+  const handleSubmit = event => {
+    event.preventDefault();
+    dispatch(register({ name, email, password }));
+    setName('');
+    setEmail('');
+    setPassword('');
+    setOpen(false);
+  };
 
-    return (
-      <div>
-        <button>
-          <Link to="/">Go back</Link>
-        </button>
-        <p></p>
-        <form onSubmit={handleSubmit} autoComplete="off">
-          <label>
-            Name
-            <input
+  return (
+    <div>
+      <React.Fragment>
+        <Button onClick={handleOpen}>Registration</Button>
+        <Modal
+          hideBackdrop
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="child-modal-title"
+          aria-describedby="child-modal-description"
+        >
+          <Box sx={{ ...style, width: 200 }}>
+            <TextField
+              id="outlined-basic"
+              label="Login"
               type="text"
-              name="name"
-              value={name}
+              variant="outlined"
               onChange={handleChange}
-              placeholder="your login"
             />
-          </label>
-          <p></p>
-          <label>
-            Email
-            <input
+            <p></p>
+            <TextField
+              id="outlined-email-input"
+              label="Email"
               type="email"
-              name="email"
-              value={email}
+              variant="outlined"
               onChange={handleChange}
-              placeholder="your email"
             />
-          </label>
-          <p></p>
-          <label>
-            Password
-            <input
+            <p></p>
+            <TextField
+              id="outlined-password-input"
+              label="Password"
               type="password"
-              name="password"
-              value={password}
+              variant="outlined"
               onChange={handleChange}
-              placeholder="min 7 symbols"
             />
-          </label>
-          <p></p>
-          <button type="submit">Register</button>
-        </form>
-      </div>
-    );
-}
+            <p></p>
+            <Button onClick={handleSubmit}>Register</Button>
+          </Box>
+        </Modal>
+      </React.Fragment>
+      {/* <button>
+        <Link to="/">Go back</Link>
+      </button>
+      <p></p>
+      <form onSubmit={handleSubmit} autoComplete="off">
+        <label>
+          Name
+          <input
+            type="text"
+            name="name"
+            value={name}
+            onChange={handleChange}
+            placeholder="your login"
+          />
+        </label>
+        <p></p>
+        <label>
+          Email
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleChange}
+            placeholder="your email"
+          />
+        </label>
+        <p></p>
+        <label>
+          Password
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={handleChange}
+            placeholder="min 7 symbols"
+          />
+        </label>
+        <p></p>
+        <button type="submit">Register</button>
+      </form> */}
+    </div>
+  );
+};
