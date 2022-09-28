@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { register } from 'Redux/auth/authOperation';
+import { register } from 'Redux/Auth1/authOperation';
 
 const style = {
   position: 'absolute',

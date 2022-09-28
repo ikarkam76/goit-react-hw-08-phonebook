@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField';
 import Modal from '@mui/material/Modal';
 import { Loader } from 'components/Loader';
 
-import { useCreateContactMutation } from 'Redux/Slices/ContactsSlice';
+import { useCreateContactMutation } from 'Redux/Contacts/ContactsApi';
 
 const style = {
   position: 'absolute',

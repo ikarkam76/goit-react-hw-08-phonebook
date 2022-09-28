@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Modal from '@mui/material/Modal';
 
-import { useEditContactByIdMutation } from 'Redux/Slices/ContactsSlice';
+import { useEditContactByIdMutation } from 'Redux/Contacts/ContactsApi';
 
 const style = {
   position: 'absolute',

@@ -8,7 +8,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
 import { useDispatch } from 'react-redux';
-import { logOut } from 'Redux/auth/authOperation';
+import { logOut } from 'Redux/Auth1/authOperation';
 
 export const UserMenu = ({name, email}) => {
   const [anchorElUser, setAnchorElUser] = React.useState (null);

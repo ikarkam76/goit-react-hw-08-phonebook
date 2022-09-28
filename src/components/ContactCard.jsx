@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
-import { useDeleteContactByIdMutation } from 'Redux/Slices/ContactsSlice';
+import { useDeleteContactByIdMutation } from 'Redux/Contacts/ContactsApi';
 import { EditContactModal } from './Modals/EditContactModal';
 
 export const ContactCard = ({ contact }) => {

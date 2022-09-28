@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
-import { useGetContactsByLoginQuery } from 'Redux/Slices/ContactsSlice';
+import { useGetContactsByLoginQuery } from 'Redux/Contacts/ContactsApi';
 import { AddContactModal } from '../components/Modals/AddContactModal';
 import { ContactCard } from '../components/ContactCard';
 import { Loader } from 'components/Loader';

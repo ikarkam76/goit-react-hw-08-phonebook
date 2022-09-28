@@ -11,8 +11,8 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import { authReducer } from 'Redux/auth/authSlice';
-import { contactsApi } from 'Redux/Slices/ContactsSlice';
+import { authReducer } from 'Redux/Auth1/authSlice';
+import { contactsApi } from 'Redux/Contacts/ContactsApi';
 
 
 
