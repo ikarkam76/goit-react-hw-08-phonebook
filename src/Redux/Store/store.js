@@ -16,15 +16,16 @@ import { contactsApi } from 'Redux/Slices/ContactsSlice';
 
 
 
-const persistConfig = {
+const persistAuthConfig = {
   key: 'auth',
   storage,
   whitlist: ['token'],
 };
 
+
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(persistConfig, authReducer),
+    auth: persistReducer(persistAuthConfig, authReducer),
     [contactsApi.reducerPath]: contactsApi.reducer,
   },
   middleware: getDefaultMiddleware =>
