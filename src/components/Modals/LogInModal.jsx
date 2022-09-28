@@ -31,7 +31,7 @@ export const LoginModal = () => {
   return (
     <div>
       <Button
-        sx={{ bgcolor: ' buttonface' }}
+        sx={{ ...style, width: 200 }}
         variant="outlined"
         onClick={handleOpen}
       >
@@ -44,7 +44,7 @@ export const LoginModal = () => {
         aria-describedby="parent-modal-description"
       >
         <Box sx={{ ...style, width: 400 }}>
-            <LoginPage />
+          <LoginPage />
         </Box>
       </Modal>
     </div>

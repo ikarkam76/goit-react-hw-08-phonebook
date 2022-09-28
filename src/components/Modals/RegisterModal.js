@@ -63,7 +63,10 @@ export const RegistrationModal = () => {
   return (
     <div>
       <React.Fragment>
-        <Button onClick={handleOpen}>Registration</Button>
+        <p>If you do not have an account, please register</p>
+        <Button variant="outlined" onClick={handleOpen}>
+          Registration
+        </Button>
         <Modal
           hideBackdrop
           open={open}

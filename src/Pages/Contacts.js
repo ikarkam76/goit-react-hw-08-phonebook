@@ -13,8 +13,6 @@ export const Contacts = () => {
   const handleChange = (event) => {
     setFilter(event.target.value);
   }
-  // const contactsList = data.filter(contact =>contact.name.toLowerCase().includes(filter.toLowerCase()));
-
   if (isLoading) {
     return <Loader />;
   }

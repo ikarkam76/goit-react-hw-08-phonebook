@@ -33,11 +33,17 @@ export const ContactsAppBar = () => {
             >
               📒ContactBook
             </Typography>
-            {isLoggedIn ? <UserMenu name={userName} /> : <LoginModal />}
+            {isLoggedIn && <UserMenu name={userName} />}
           </Toolbar>
         </Container>
       </AppBar>
-      <Outlet />
+      {isLoggedIn ? (
+        <Outlet />
+      ) : (
+        <h4>
+          Welcome to Contacts App! Please log in  <LoginModal />
+        </h4>
+      )}
     </>
   );
 };

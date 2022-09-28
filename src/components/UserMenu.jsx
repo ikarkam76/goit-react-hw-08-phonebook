@@ -55,11 +55,21 @@ export const UserMenu = ({name}) => {
           >
             <MenuItem onClick={handleCloseUserMenu}>
               <Typography textAlign="center">
-                <Link to="contacts">Contacts</Link>
+                <Link
+                  style={{ textDecoration: 'none', color: 'black' }}
+                  to="contacts"
+                >
+                  Contacts
+                </Link>
               </Typography>
             </MenuItem>
             <MenuItem onClick={handleLogOut}>
-              <Typography textAlign="center">Logout</Typography>
+              <Typography
+                style={{ color: 'black' }}
+                textAlign="center"
+              >
+                Logout
+              </Typography>
             </MenuItem>
           </Menu>
         </Box>
