@@ -31,7 +31,7 @@ export const ContactsAppBar = () => {
                 textDecoration: 'none',
               }}
             >
-              ContactBook
+              📒ContactBook
             </Typography>
             {isLoggedIn ? <UserMenu name={userName} /> : <LoginModal />}
           </Toolbar>

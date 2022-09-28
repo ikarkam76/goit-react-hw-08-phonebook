@@ -30,9 +30,7 @@ export const UserMenu = ({name}) => {
 
     return (
       <>
-        <Box sx={{ flexGrow: 0 }}>
-          Hello, {name}!
-        </Box>
+        <Box sx={{ flexGrow: 0 }}>🦊 Hello, {name}!</Box>
         <Box sx={{ flexGrow: 0 }}>
           <Tooltip title="Open settings">
             <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>

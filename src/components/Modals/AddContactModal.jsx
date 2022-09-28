@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Modal from '@mui/material/Modal';
+import { Loader } from 'components/Loader';
 
 import { useCreateContactMutation } from 'Redux/Slices/ContactsSlice';
 
@@ -27,13 +28,16 @@ export const AddContactModal = () => {
     const handleChangeName = (event) => setName(event.target.value);
     const handleChangeNumber = event => setNumber(event.target.value);
 
-    const [addContact] = useCreateContactMutation();
+    const [addContact, isLoading] = useCreateContactMutation();
     const handleSubmit = () => {
         const newContact = {name, number}
         addContact(newContact);
       handleClose();
     }
 
+  if (!isLoading) {
+    return <Loader />;
+  }
   return (
     <div>
       <Button variant="outlined" onClick={handleOpen}>

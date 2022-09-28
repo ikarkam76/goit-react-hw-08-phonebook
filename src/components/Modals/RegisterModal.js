@@ -100,46 +100,6 @@ export const RegistrationModal = () => {
           </Box>
         </Modal>
       </React.Fragment>
-      {/* <button>
-        <Link to="/">Go back</Link>
-      </button>
-      <p></p>
-      <form onSubmit={handleSubmit} autoComplete="off">
-        <label>
-          Name
-          <input
-            type="text"
-            name="name"
-            value={name}
-            onChange={handleChange}
-            placeholder="your login"
-          />
-        </label>
-        <p></p>
-        <label>
-          Email
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleChange}
-            placeholder="your email"
-          />
-        </label>
-        <p></p>
-        <label>
-          Password
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-            placeholder="min 7 symbols"
-          />
-        </label>
-        <p></p>
-        <button type="submit">Register</button>
-      </form> */}
     </div>
   );
 };

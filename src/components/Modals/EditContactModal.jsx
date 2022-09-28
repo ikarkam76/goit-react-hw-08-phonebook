@@ -34,7 +34,6 @@ export const EditContactModal = ({ contact }) => {
             number: userNumber,
             contactId: contact.id,
         };
-        console.log( editContact);
         changeContact( editContact);
         handleClose();
     };
