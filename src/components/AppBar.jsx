@@ -42,10 +42,16 @@ export const ContactsAppBar = () => {
       {isLoggedIn ? (
         <Outlet />
       ) : (
-        <Box sx={{ maxWidth: 1200, mr: 'auto', ml: 'auto' }}>
-          <h4>
-            Welcome to Contacts App! Please log in <LoginModal />
-          </h4>
+        <Box sx={{ maxWidth: 1200, mr: 'auto', ml: 'auto', textAlign: 'center' }}>
+          <Typography
+            sx={{
+              mt: 5,
+              fontWeight: 700,
+              fontSize: 20,
+            }}
+          >
+            Welcome to Contacts App! Please press this button <LoginModal />
+          </Typography>
         </Box>
       )}
     </>
