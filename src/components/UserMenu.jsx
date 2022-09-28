@@ -10,7 +10,7 @@ import IconButton from '@mui/material/IconButton';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'Redux/auth/authOperation';
 
-export const UserMenu = ({name}) => {
+export const UserMenu = ({name, email}) => {
   const [anchorElUser, setAnchorElUser] = React.useState (null);
 
   const handleOpenUserMenu = (event) => {
@@ -53,6 +53,11 @@ export const UserMenu = ({name}) => {
             open={Boolean(anchorElUser)}
             onClose={handleCloseUserMenu}
           >
+            <MenuItem>
+              <Typography sx={{ color: 'black' }} textAlign="center">
+                {email}
+              </Typography>
+            </MenuItem>
             <MenuItem onClick={handleCloseUserMenu}>
               <Typography textAlign="center">
                 <Link
@@ -64,10 +69,7 @@ export const UserMenu = ({name}) => {
               </Typography>
             </MenuItem>
             <MenuItem onClick={handleLogOut}>
-              <Typography
-                style={{ color: 'black' }}
-                textAlign="center"
-              >
+              <Typography sx={{ color: 'black' }} textAlign="center">
                 Logout
               </Typography>
             </MenuItem>

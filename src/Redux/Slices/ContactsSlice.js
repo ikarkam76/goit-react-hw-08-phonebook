@@ -12,14 +12,16 @@ export const contactsApi = createApi({
       return headers;
     },
   }),
+  tagTypes: ['Contacts'],
   endpoints: builder => ({
     getContactsByLogin: builder.query({
       query: () => ({
         url: `/contacts`,
+        providesTags: ['Contacts'],
       }),
     }),
     editContactById: builder.mutation({
-      query: ({name, number, contactId}) => ({
+      query: ({ name, number, contactId }) => ({
         url: `/contacts/${contactId}`,
         method: 'PATCH',
         body: {
@@ -27,15 +29,17 @@ export const contactsApi = createApi({
           number: number,
         },
       }),
+      invalidatesTags: ['Contacts'],
     }),
     deleteContactById: builder.mutation({
-      query: (contactId) => ({
+      query: contactId => ({
         url: `/contacts/${contactId}`,
         method: 'DELETE',
       }),
+      invalidatesTags: ['Contacts'],
     }),
     createContact: builder.mutation({
-      query: ({name, number}) => ({
+      query: ({ name, number }) => ({
         url: `/contacts`,
         method: 'POST',
         body: {
@@ -43,6 +47,7 @@ export const contactsApi = createApi({
           number: number,
         },
       }),
+      invalidatesTags: ['Contacts'],
     }),
   }),
 });

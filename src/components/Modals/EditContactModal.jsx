@@ -40,7 +40,7 @@ export const EditContactModal = ({ contact }) => {
 
   return (
     <div>
-      <Button variant="outlined" size="small"  onClick={handleOpen}>
+      <Button variant="contained" size="small" onClick={handleOpen}>
         Edit
       </Button>
       <Modal
@@ -53,7 +53,7 @@ export const EditContactModal = ({ contact }) => {
           <TextField
             id="outlined-basic"
             label="Contact name"
-            value= {userName}
+            value={userName}
             variant="outlined"
             onChange={handleChangeName}
           />
@@ -65,7 +65,7 @@ export const EditContactModal = ({ contact }) => {
             }}
             id="outlined-basic"
             label="Contact phone"
-            value= {userNumber}
+            value={userNumber}
             variant="outlined"
             onChange={handleChangeNumber}
           />

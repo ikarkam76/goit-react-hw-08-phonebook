@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Outlet } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
+import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { UserMenu } from './UserMenu';
@@ -11,11 +12,12 @@ import { authSelectors } from 'Redux/auth/authSelectors';
 
 export const ContactsAppBar = () => {
     const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-    const userName = useSelector(authSelectors.getUserName);
+  const userName = useSelector(authSelectors.getUserName);
+  const userMail = useSelector(authSelectors.getUserEmail);
   return (
     <>
-      <AppBar position="static">
-        <Container maxWidth="xl">
+      <AppBar sx={{ maxWidth: 1200, mr: 'auto', ml: 'auto' }} position="static">
+        <Container maxWidth="x2">
           <Toolbar disableGutters>
             <Typography
               variant="h5"
@@ -33,16 +35,18 @@ export const ContactsAppBar = () => {
             >
               📒ContactBook
             </Typography>
-            {isLoggedIn && <UserMenu name={userName} />}
+            {isLoggedIn && <UserMenu name={userName} email={userMail} />}
           </Toolbar>
         </Container>
       </AppBar>
       {isLoggedIn ? (
         <Outlet />
       ) : (
-        <h4>
-          Welcome to Contacts App! Please log in  <LoginModal />
-        </h4>
+        <Box sx={{ maxWidth: 1200, mr: 'auto', ml: 'auto' }}>
+          <h4>
+            Welcome to Contacts App! Please log in <LoginModal />
+          </h4>
+        </Box>
       )}
     </>
   );

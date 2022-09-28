@@ -40,8 +40,8 @@ export const AddContactModal = () => {
   }
   return (
     <div>
-      <Button variant="outlined" onClick={handleOpen}>
-        Add contact
+      <Button sx={{mt:1}} variant="contained" onClick={handleOpen}>
+        Add new contact
       </Button>
       <Modal
         open={open}
@@ -58,7 +58,10 @@ export const AddContactModal = () => {
           />
           <p></p>
           <TextField
-            inputProps={{ inputMode: 'tel', pattern: "[0-9]{3}-[0-9]{3}-[0-9]{4}" }}
+            inputProps={{
+              inputMode: 'tel',
+              pattern: '[0-9]{3}-[0-9]{3}-[0-9]{4}',
+            }}
             id="outlined-basic"
             label="Contact phone"
             variant="outlined"
