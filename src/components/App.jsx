@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Routes } from 'react-router-dom';
-import { fetchCurrentUser } from "Redux/Auth1/authOperation";
+import { fetchCurrentUser } from "Redux/Auth/authOperation";
 import { PrivateRoute } from "components/PrivateRoute";
 import { PublicRoute } from "./PublicRoute";
 import { LoginModal } from "./Modals/LogInModal";

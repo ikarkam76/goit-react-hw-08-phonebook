@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { logIn } from 'Redux/Auth1/authOperation';
+import { logIn } from 'Redux/Auth/authOperation';
 import { RegistrationModal } from 'components/Modals/RegisterModal';
 
 const style = {

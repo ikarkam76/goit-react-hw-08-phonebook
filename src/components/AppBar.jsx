@@ -8,7 +8,7 @@ import Container from '@mui/material/Container';
 import { UserMenu } from './UserMenu';
 import { LoginModal } from './Modals/LogInModal';
 import { useSelector } from 'react-redux';
-import { authSelectors } from 'Redux/Auth1/authSelectors';
+import { authSelectors } from 'Redux/Auth/authSelectors';
 
 export const ContactsAppBar = () => {
     const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
