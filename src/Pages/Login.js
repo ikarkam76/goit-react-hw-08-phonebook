@@ -21,27 +21,17 @@ const style = {
 
 export const LoginPage = () => {
   const dispatch = useDispatch();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [user, setUser] = useState({ email: '', password: '' });
 
   const handleChange = event => {
-    switch (event.target.type) {
-      case 'email':
-        setEmail(event.target.value);
-        break;
-      case 'password':
-        setPassword(event.target.value);
-        break;
-      default:
-        return;
-    }
+    setUser(prev => ({ ...prev, [event.target.type]: event.target.value}));
   };
 
   const handleSubmit = event => {
+    const { email, password } = user;
     event.preventDefault();
     dispatch(logIn({ email, password }));
-    setEmail('');
-    setPassword('');
+    setUser({ email: '', password: '' });
   };
 
   return (
